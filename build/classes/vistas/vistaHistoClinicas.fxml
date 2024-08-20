@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.VistaHistoClinicasController">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="150.0" prefWidth="420.0" style="-fx-border-color: black;">
+         <children>
+            <Label layoutX="85.0" layoutY="10.0" text="Formulario Historia Clinica">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="15.0" layoutY="39.0" text="DNI:">
+               <font>
+                  <Font name="Arial Narrow" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtDniPaci" layoutX="14.0" layoutY="55.0" prefHeight="28.0" prefWidth="250.0" />
+            <Label fx:id="lblFecha" layoutX="350.0" layoutY="45.0" text="Label">
+               <font>
+                  <Font name="Arial Narrow" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtIdPaci" layoutX="10.0" layoutY="5.0" prefHeight="28.0" prefWidth="50.0" />
+            <Label layoutX="15.0" layoutY="90.0" text="Apellido:">
+               <font>
+                  <Font name="Arial Narrow" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtApePaci" layoutX="15.0" layoutY="106.0" prefHeight="28.0" prefWidth="190.0" />
+            <Label layoutX="210.0" layoutY="90.0" text="Nombres:">
+               <font>
+                  <Font name="Arial Narrow" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtNomPaci" layoutX="210.0" layoutY="106.0" prefHeight="28.0" prefWidth="195.0" />
+            <Button fx:id="btnAbrirPacientes" layoutX="270.0" layoutY="55.0" mnemonicParsing="false" onAction="#eventAbrirPacientes" prefHeight="28.0" prefWidth="30.0" text="..." />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="10.0" layoutY="170.0" prefHeight="260.0" prefWidth="420.0" style="-fx-border-color: black;">
+         <children>
+            <Label layoutX="195.0" layoutY="15.0" text="Medico Tratante:">
+               <font>
+                  <Font name="Arial Narrow" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtHisto" layoutX="15.0" layoutY="32.0" onKeyReleased="#eventBuscarPorNombre" prefHeight="28.0" prefWidth="170.0" />
+            <Label layoutX="15.0" layoutY="15.0" text="Historia Clinica:">
+               <font>
+                  <Font name="Arial Narrow" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtApeMedi" layoutX="192.0" layoutY="32.0" prefHeight="28.0" prefWidth="210.0" />
+            <TextField fx:id="txtIdHisto" layoutX="125.0" layoutY="2.0" prefHeight="15.0" prefWidth="30.0" />
+            <TextField fx:id="txtIdMedi" layoutX="306.0" layoutY="3.0" prefHeight="15.0" prefWidth="30.0" />
+            <Label layoutX="15.0" layoutY="66.0" text="Tratamiento:">
+               <font>
+                  <Font name="Arial Narrow" size="14.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="txtTratHisto" layoutX="15.0" layoutY="82.0" prefHeight="165.0" prefWidth="393.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="440.0" layoutY="10.0" prefHeight="320.0" prefWidth="590.0" style="-fx-border-color: black;">
+         <children>
+            <TableView fx:id="tblHistoClinicas" layoutX="10.0" layoutY="10.0" onMouseClicked="#eventSelecFila" prefHeight="300.0" prefWidth="630.0">
+              <columns>
+                  <TableColumn fx:id="colId" prefWidth="40.0" text="ID" />
+                  <TableColumn fx:id="colFechAl" prefWidth="95.0" text="FECHA ALTA" />
+                <TableColumn fx:id="colHisto" prefWidth="130.0" text="HISTORIA CLINICA" />
+                <TableColumn fx:id="colIdPaci" prefWidth="40.0" text="IDPACI" visible="false" />
+                  <TableColumn fx:id="colApePaci" prefWidth="120.0" text="APELLIDO" />
+                  <TableColumn fx:id="colNomPaci" prefWidth="140.0" text="NOMBRES" />
+                  <TableColumn fx:id="colIdMedi" prefWidth="40.0" text="IDMEDI" visible="false" />
+                  <TableColumn fx:id="colTrat" prefWidth="90.0" text="TRATAMIENTO" visible="false" />
+                  <TableColumn fx:id="colFechUlt" prefWidth="100.0" text="FECHA ULT." />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="441.0" layoutY="337.0" prefHeight="85.0" prefWidth="640.0" style="-fx-border-color: black;">
+         <children>
+            <Button fx:id="btnNuevo" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#eventNuevo" prefHeight="30.0" prefWidth="90.0" text="Nuevo" />
+            <Button fx:id="btnBajas" layoutX="105.0" layoutY="10.0" mnemonicParsing="false" onAction="#eventBajas" prefHeight="30.0" prefWidth="90.0" text="Bajas" />
+            <Button fx:id="btnEditar" layoutX="200.0" layoutY="10.0" mnemonicParsing="false" onAction="#eventEditar" prefHeight="30.0" prefWidth="90.0" text="Editar" />
+            <Button fx:id="btnCancelar" layoutX="295.0" layoutY="10.0" mnemonicParsing="false" onAction="#eventCancelar" prefHeight="30.0" prefWidth="90.0" text="Cancelar" />
+            <Button fx:id="btnBuscar" layoutX="390.0" layoutY="10.0" mnemonicParsing="false" onAction="#eventBuscar" prefHeight="30.0" prefWidth="90.0" text="Buscar" />
+            <Button fx:id="btnCerrar" layoutX="540.0" layoutY="45.0" mnemonicParsing="false" onAction="#eventCerrar" prefHeight="30.0" prefWidth="90.0" text="Cerrar" />
+            <Button fx:id="btnGuardar" layoutX="445.0" layoutY="45.0" mnemonicParsing="false" onAction="#eventGuardar" prefHeight="30.0" prefWidth="90.0" text="Guardar" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
