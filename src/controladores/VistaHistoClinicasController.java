@@ -225,6 +225,7 @@ public class VistaHistoClinicasController implements Initializable {
             VistaPacientesController vistaPacientesController = loader.getController();
             //le paso el el controlador de la VistaHistoClinicas al controlador Pacientes
             vistaPacientesController.setVistaHistoClinicasController(this);
+            vistaPacientesController.exportar = true;
             Scene scene = new Scene(root);
             Stage vPacientes = new Stage();
             vPacientes.setScene(scene);

@@ -35,6 +35,7 @@ public class VistaPacientesController implements Initializable {
     String vSexo;       //guarda el genero seleccionado del combo
     boolean altas = false;
     boolean editar = false;
+    boolean exportar = false;
     //declaro una variable tipo VistaHistoClinicasController
     private VistaHistoClinicasController vistaHistoClinicasController;
 
@@ -199,10 +200,14 @@ public class VistaPacientesController implements Initializable {
 
     @FXML
     private void eventExportar(ActionEvent event) {
-        if (!txtId.getText().isEmpty()) {
+        if (!txtId.getText().isEmpty() && !txtApe.getText().isEmpty() && !txtNom.getText().isEmpty() && exportar==true) {
             exporDatos();
         } else {
-            JOptionPane.showMessageDialog(null, "No se puede concretar la exportacion de datos...");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Mensaje Exportar Datos");
+            alert.setContentText("No se puede concretar la exportación");
+            alert.setHeaderText(null);
+            alert.showAndWait();
         }
     }
 
@@ -318,22 +323,22 @@ public class VistaPacientesController implements Initializable {
 
     //metodo exportar datos paciente a historia clinica a traves de un objecto tipo Paciente
     private void exporDatos() {
-        int vId = Integer.parseInt(txtId.getText());
-        String vDni = txtDni.getText();
-        String vApe = txtApe.getText();
-        String vNom = txtNom.getText();
-        String vDom = txtDom.getText();
-        String vTel = txtTel.getText();
-        String vCor = txtCor.getText();
-        String vSex = txtSex.getText();
-        //creo el objecto
-        Paciente p = new Paciente(vId, vApe, vNom, vDom, vDni, vTel, vCor, vSex, true);
-        vistaHistoClinicasController.recibirDatosPaciente(p);
-        //cierro la vista pacientes
-        /*
+            int vId = Integer.parseInt(txtId.getText());
+            String vDni = txtDni.getText();
+            String vApe = txtApe.getText();
+            String vNom = txtNom.getText();
+            String vDom = txtDom.getText();
+            String vTel = txtTel.getText();
+            String vCor = txtCor.getText();
+            String vSex = txtSex.getText();
+            //creo el objecto
+            Paciente p = new Paciente(vId, vApe, vNom, vDom, vDni, vTel, vCor, vSex, true);
+            vistaHistoClinicasController.recibirDatosPaciente(p);
+            //cierro la vista pacientes
+            /*
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.close();
-         */
+             */              
     }
 
     //metodo limpiar campos
