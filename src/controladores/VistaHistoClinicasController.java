@@ -179,7 +179,6 @@ public class VistaHistoClinicasController implements Initializable {
                         insertHistoClinica();
                         cargarTabla();
                         limpiarCampos();
-
                     } catch (NumberFormatException e) {
                         Alert mensaje = new Alert(Alert.AlertType.WARNING);
                         mensaje.setTitle("Datos ingresados no validos");
@@ -193,8 +192,10 @@ public class VistaHistoClinicasController implements Initializable {
                     mensaje.setContentText("No se concreto nigun altas de registro...");
                     mensaje.setHeaderText("");
                     mensaje.showAndWait();
+                    limpiarCampos();
                 }
             }
+
             if (editar == true) {
                 Alert mensaje = new Alert(Alert.AlertType.CONFIRMATION);
                 mensaje.setTitle("Edicion de registros");
@@ -214,14 +215,15 @@ public class VistaHistoClinicasController implements Initializable {
                         mensajeE.setHeaderText("");
                         mensajeE.showAndWait();
                     }
+                } else {
+                    Alert mensajeT = new Alert(Alert.AlertType.WARNING);
+                    mensajeT.setTitle("Edicion no concretada");
+                    mensajeT.setContentText("No se concreto niguna edicion de registro...");
+                    mensajeT.setHeaderText("");
+                    mensajeT.showAndWait();
+                    limpiarCampos();
                 }
 
-            } else {
-                Alert mensaje = new Alert(Alert.AlertType.WARNING);
-                mensaje.setTitle("Edicion no concretada");
-                mensaje.setContentText("No se concreto niguna edicion de registro...");
-                mensaje.setHeaderText("");
-                mensaje.showAndWait();
             }
 
         } else {
