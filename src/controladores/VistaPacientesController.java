@@ -167,11 +167,44 @@ public class VistaPacientesController implements Initializable {
                 alert.setHeaderText(null);
                 Optional<ButtonType> opcion = alert.showAndWait();
                 if (opcion.get() == ButtonType.OK) {
-                    inserPaci();
-                    limpiarCampos();
-                    cargarTabla();
+                    try {
+                        String vApe = txtApe.getText();
+                        String vNom = txtNom.getText();
+                        Integer.parseInt(txtDni.getText());
+                        Integer.parseInt(txtTel.getText());
+                        
+                        if (!vApe.matches("[a-zA-Z ]") || !vNom.matches("[a-zA-Z ]")) {
+                            Alert mensaje = new Alert(Alert.AlertType.WARNING);
+                            mensaje.setTitle("Datos no validos");
+                            mensaje.setContentText("El campo apellido y nombres deben ser alfanumericos...");
+                            mensaje.setHeaderText(null);
+                            mensaje.showAndWait();
+                        } else {
+                            inserPaci();
+                            limpiarCampos();
+                            cargarTabla();
+                        }
+
+                    } catch (NumberFormatException e) {
+                        Alert mensaje = new Alert(Alert.AlertType.WARNING);
+                        mensaje.setTitle("Datos no validos");
+                        mensaje.setContentText("El campo telefono y DNI deben ser numericos...");
+                        mensaje.setHeaderText(null);
+                        mensaje.showAndWait();
+                    } catch (IllegalArgumentException e) {
+                        Alert mensaje = new Alert(Alert.AlertType.WARNING);
+                        mensaje.setTitle("Error Inesperado ");
+                        mensaje.setContentText("Ocurrio un error inesperado...");
+                        mensaje.setHeaderText(null);
+                        mensaje.showAndWait();
+                    }
                 } else {
-                    JOptionPane.showMessageDialog(null, "No se concreto ningun altas de registro...");
+                    //JOptionPane.showMessageDialog(null, "No se concreto ningun altas de registro...");
+                    Alert mensaje = new Alert(Alert.AlertType.INFORMATION);
+                    mensaje.setTitle("Altas no concretado");
+                    mensaje.setContentText("No se concreto ningun altas de registro...");
+                    mensaje.setHeaderText(null);
+                    mensaje.showAndWait();
                 }
             }
             if (editar == true) {
@@ -181,11 +214,46 @@ public class VistaPacientesController implements Initializable {
                 alert.setHeaderText(null);
                 Optional<ButtonType> opcion = alert.showAndWait();
                 if (opcion.get() == ButtonType.OK) {
-                    editPaci();
-                    limpiarCampos();
-                    cargarTabla();
+                    try {
+                        String vApe = txtApe.getText();
+                        String vNom = txtNom.getText();
+                        Integer.parseInt(txtDni.getText());
+                        Integer.parseInt(txtTel.getText());
+                        
+                        if (!vApe.matches("[a-zA-Z ]+") || !vNom.matches("[a-zA-Z ]+")) {
+                            Alert mensaje = new Alert(Alert.AlertType.WARNING);
+                            mensaje.setTitle("Datos no validos");
+                            mensaje.setContentText("El campo apellido y nombres deben ser alfanumericos...");
+                            mensaje.setHeaderText(null);
+                            mensaje.showAndWait();
+                        } else {
+                            editPaci();
+                            limpiarCampos();
+                            cargarTabla();
+                        }
+
+                    } catch (NumberFormatException e) {
+                        Alert mensaje = new Alert(Alert.AlertType.WARNING);
+                        mensaje.setTitle("Datos no validos");
+                        mensaje.setContentText("El campo telefono y DNI deben ser numericos...");
+                        mensaje.setHeaderText(null);
+                        mensaje.showAndWait();
+
+                    } catch (IllegalArgumentException e) {
+                        Alert mensaje = new Alert(Alert.AlertType.WARNING);
+                        mensaje.setTitle("Error Inesperado ");
+                        mensaje.setContentText("Ocurrio un error inesperado...");
+                        mensaje.setHeaderText(null);
+                        mensaje.showAndWait();
+                    }
+
                 } else {
-                    JOptionPane.showMessageDialog(null, "No se concreto ninguna edicion de registro...");
+                    //JOptionPane.showMessageDialog(null, "No se concreto ninguna edicion de registro...");
+                    Alert mensaje = new Alert(Alert.AlertType.INFORMATION);
+                    mensaje.setTitle("Edicion no concretado");
+                    mensaje.setContentText("No se concreto ninguna edicion de registro...");
+                    mensaje.setHeaderText(null);
+                    mensaje.showAndWait();
                 }
             }
 
@@ -200,7 +268,7 @@ public class VistaPacientesController implements Initializable {
 
     @FXML
     private void eventExportar(ActionEvent event) {
-        if (!txtId.getText().isEmpty() && !txtApe.getText().isEmpty() && !txtNom.getText().isEmpty() && exportar==true) {
+        if (!txtId.getText().isEmpty() && !txtApe.getText().isEmpty() && !txtNom.getText().isEmpty() && exportar == true) {
             exporDatos();
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -323,22 +391,22 @@ public class VistaPacientesController implements Initializable {
 
     //metodo exportar datos paciente a historia clinica a traves de un objecto tipo Paciente
     private void exporDatos() {
-            int vId = Integer.parseInt(txtId.getText());
-            String vDni = txtDni.getText();
-            String vApe = txtApe.getText();
-            String vNom = txtNom.getText();
-            String vDom = txtDom.getText();
-            String vTel = txtTel.getText();
-            String vCor = txtCor.getText();
-            String vSex = txtSex.getText();
-            //creo el objecto
-            Paciente p = new Paciente(vId, vApe, vNom, vDom, vDni, vTel, vCor, vSex, true);
-            vistaHistoClinicasController.recibirDatosPaciente(p);
-            //cierro la vista pacientes
-            /*
+        int vId = Integer.parseInt(txtId.getText());
+        String vDni = txtDni.getText();
+        String vApe = txtApe.getText();
+        String vNom = txtNom.getText();
+        String vDom = txtDom.getText();
+        String vTel = txtTel.getText();
+        String vCor = txtCor.getText();
+        String vSex = txtSex.getText();
+        //creo el objecto
+        Paciente p = new Paciente(vId, vApe, vNom, vDom, vDni, vTel, vCor, vSex, true);
+        vistaHistoClinicasController.recibirDatosPaciente(p);
+        //cierro la vista pacientes
+        /*
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.close();
-             */              
+         */
     }
 
     //metodo limpiar campos

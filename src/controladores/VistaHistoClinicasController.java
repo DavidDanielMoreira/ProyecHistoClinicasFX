@@ -53,6 +53,7 @@ public class VistaHistoClinicasController implements Initializable {
     private ObservableList<HistoMediPaci> filPorNombre;
     private LocalDate vFechaAlta;       //guarda la fecha de alta de la Historia clinica seleccionada de la tabla
     private boolean altas = false;
+    private boolean editar = false;
     private LocalDate vFecha = LocalDate.now();
     DateTimeFormatter forma = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     String fechForma = vFecha.format(forma);
@@ -145,6 +146,7 @@ public class VistaHistoClinicasController implements Initializable {
 
     @FXML
     private void eventEditar(ActionEvent event) {
+        editar = true;
         btnGuardar.setDisable(false);
     }
 
@@ -172,30 +174,56 @@ public class VistaHistoClinicasController implements Initializable {
                 alert.setHeaderText("");
                 Optional<ButtonType> opcion = alert.showAndWait();
                 if (opcion.get() == ButtonType.OK) {
-                    insertHistoClinica();
-                    cargarTabla();
-                    limpiarCampos();
+                    try {
+                        Integer.parseInt(txtHisto.getText());
+                        insertHistoClinica();
+                        cargarTabla();
+                        limpiarCampos();
+
+                    } catch (NumberFormatException e) {
+                        Alert mensaje = new Alert(Alert.AlertType.WARNING);
+                        mensaje.setTitle("Datos ingresados no validos");
+                        mensaje.setContentText("El campo historia clinica debe ser numerico...");
+                        mensaje.setHeaderText("");
+                        mensaje.showAndWait();
+                    }
                 } else {
-                    JOptionPane.showMessageDialog(null, "No se concreto ningun altas de registro");
-                    limpiarCampos();
+                    Alert mensaje = new Alert(Alert.AlertType.WARNING);
+                    mensaje.setTitle("Altas no concretada");
+                    mensaje.setContentText("No se concreto nigun altas de registro...");
+                    mensaje.setHeaderText("");
+                    mensaje.showAndWait();
+                }
+            }
+            if (editar == true) {
+                Alert mensaje = new Alert(Alert.AlertType.CONFIRMATION);
+                mensaje.setTitle("Edicion de registros");
+                mensaje.setContentText("¿Confirma la edición del registro");
+                Optional<ButtonType> opcion = mensaje.showAndWait();
+                if (opcion.get() == ButtonType.OK) {
+                    try {
+                        Integer.parseInt(txtHisto.getText());
+                        editHistoClinica();
+                        cargarTabla();
+                        limpiarCampos();
+
+                    } catch (NumberFormatException e) {
+                        Alert mensajeE = new Alert(Alert.AlertType.WARNING);
+                        mensajeE.setTitle("Datos ingresados no validos");
+                        mensajeE.setContentText("El campo historia clinica debe ser numerico...");
+                        mensajeE.setHeaderText("");
+                        mensajeE.showAndWait();
+                    }
                 }
 
             } else {
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Edición Historia Clinicas");
-                alert.setContentText("¿Confirma la edición del registro?");
-                alert.setHeaderText("");
-                Optional<ButtonType> opcion = alert.showAndWait();
-                if (opcion.get() == ButtonType.OK) {
-                    editHistoClinica();
-                    cargarTabla();
-                    limpiarCampos();
-                } else {
-                    JOptionPane.showMessageDialog(null, "No se concreto ningun altas de registro");
-                    limpiarCampos();
-                }
-
+                Alert mensaje = new Alert(Alert.AlertType.WARNING);
+                mensaje.setTitle("Edicion no concretada");
+                mensaje.setContentText("No se concreto niguna edicion de registro...");
+                mensaje.setHeaderText("");
+                mensaje.showAndWait();
             }
+
         } else {
             //JOptionPane.showMessageDialog(null, "Faltan datos completar...");
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -225,6 +253,7 @@ public class VistaHistoClinicasController implements Initializable {
             VistaPacientesController vistaPacientesController = loader.getController();
             //le paso el el controlador de la VistaHistoClinicas al controlador Pacientes
             vistaPacientesController.setVistaHistoClinicasController(this);
+            //habilito el boton exportar cada vez que abro el formulario Pacientes desde formulario Historias Clinicas
             vistaPacientesController.exportar = true;
             Scene scene = new Scene(root);
             Stage vPacientes = new Stage();
@@ -363,6 +392,9 @@ public class VistaHistoClinicasController implements Initializable {
         txtHisto.setText("");
         txtTratHisto.setText("");
         cargarTabla();
+        altas = false;
+        editar = false;
+        btnGuardar.setDisable(true);
     }
 
     //metodo cerrar ventana
