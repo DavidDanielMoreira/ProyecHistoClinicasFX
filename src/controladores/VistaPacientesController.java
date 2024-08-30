@@ -118,8 +118,8 @@ public class VistaPacientesController implements Initializable {
     private void eventNuevo(ActionEvent event) {
         altas = true;
         btnGuardar.setDisable(false);
-        //btnBajas.setDisable(true);
-        //btnEditar.setDisable(true);
+        btnBajas.setDisable(true);
+        btnEditar.setDisable(true);
         txtApe.requestFocus();
     }
 
@@ -159,7 +159,7 @@ public class VistaPacientesController implements Initializable {
 
     @FXML
     private void eventGuardar(ActionEvent event) {
-        if (!txtApe.getText().isEmpty() && !txtNom.getText().isEmpty() && !txtDni.getText().isEmpty()) {
+        if (!txtApe.getText().isEmpty() && !txtNom.getText().isEmpty() && !txtDni.getText().isEmpty() && vSexo != null) {
             if (altas == true) {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Altas Pacientes");
@@ -172,8 +172,8 @@ public class VistaPacientesController implements Initializable {
                         String vNom = txtNom.getText();
                         Integer.parseInt(txtDni.getText());
                         Integer.parseInt(txtTel.getText());
-                        
-                        if (!vApe.matches("[a-zA-Z ]") || !vNom.matches("[a-zA-Z ]")) {
+
+                        if (!vApe.matches("[a-zA-Z ]+") || !vNom.matches("[a-zA-Z ]+")) {
                             Alert mensaje = new Alert(Alert.AlertType.WARNING);
                             mensaje.setTitle("Datos no validos");
                             mensaje.setContentText("El campo apellido y nombres deben ser alfanumericos...");
@@ -219,7 +219,7 @@ public class VistaPacientesController implements Initializable {
                         String vNom = txtNom.getText();
                         Integer.parseInt(txtDni.getText());
                         Integer.parseInt(txtTel.getText());
-                        
+
                         if (!vApe.matches("[a-zA-Z ]+") || !vNom.matches("[a-zA-Z ]+")) {
                             Alert mensaje = new Alert(Alert.AlertType.WARNING);
                             mensaje.setTitle("Datos no validos");
@@ -321,9 +321,7 @@ public class VistaPacientesController implements Initializable {
 
     //metodo insertar Paciente a traves de objectos
     private void inserPaci() {
-        if (vSexo == null) {
-            vSexo = "-";
-        }
+
         String vApe = txtApe.getText().toString();
         String vNom = txtNom.getText().toString();
         String vDom = txtDom.getText().toString();
@@ -422,6 +420,11 @@ public class VistaPacientesController implements Initializable {
         cmbSexo.getSelectionModel().clearSelection();
         cargarTabla();
         btnGuardar.setDisable(true);
+        btnNuevo.setDisable(false);
+        btnBajas.setDisable(false);
+        btnEditar.setDisable(false);
+        altas = false;
+        editar = false;
     }
 
     //metodo cerrar ventana

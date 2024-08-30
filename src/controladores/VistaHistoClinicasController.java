@@ -359,10 +359,15 @@ public class VistaHistoClinicasController implements Initializable {
             txtIdHisto.setText(String.valueOf(vIdHisto));
             txtHisto.setText(vNomHisto);
             txtIdPaci.setText(String.valueOf(vIdPaci));
-            //txtDniPaci.setText(vTrat);
+            txtDniPaci.setText(vNomHisto);
             txtApePaci.setText(vApePaci);
             txtNomPaci.setText(vNomPaci);
             txtTratHisto.setText(vTrat);
+            
+            txtHisto.setEditable(false);
+            txtDniPaci.setEditable(false);
+            txtApePaci.setEditable(false);
+            txtNomPaci.setEditable(false);
         }
     }
 
