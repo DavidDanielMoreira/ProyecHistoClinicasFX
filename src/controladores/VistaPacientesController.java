@@ -16,6 +16,7 @@ import accesoADatos.*;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.Optional;
+import java.util.regex.Pattern;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
@@ -170,8 +171,12 @@ public class VistaPacientesController implements Initializable {
                     try {
                         String vApe = txtApe.getText();
                         String vNom = txtNom.getText();
+                        /*
                         Integer.parseInt(txtDni.getText());
                         Integer.parseInt(txtTel.getText());
+                         */
+                        Long.parseLong(txtDni.getText());
+                        Long.parseLong(txtTel.getText());
 
                         if (!vApe.matches("[a-zA-Z ]+") || !vNom.matches("[a-zA-Z ]+")) {
                             Alert mensaje = new Alert(Alert.AlertType.WARNING);
@@ -217,8 +222,12 @@ public class VistaPacientesController implements Initializable {
                     try {
                         String vApe = txtApe.getText();
                         String vNom = txtNom.getText();
+                        /*
                         Integer.parseInt(txtDni.getText());
                         Integer.parseInt(txtTel.getText());
+                         */
+                        Long.parseLong(txtDni.getText());
+                        Long.parseLong(txtTel.getText());
 
                         if (!vApe.matches("[a-zA-Z ]+") || !vNom.matches("[a-zA-Z ]+")) {
                             Alert mensaje = new Alert(Alert.AlertType.WARNING);
@@ -227,9 +236,19 @@ public class VistaPacientesController implements Initializable {
                             mensaje.setHeaderText(null);
                             mensaje.showAndWait();
                         } else {
-                            editPaci();
-                            limpiarCampos();
-                            cargarTabla();
+                            String cantDigDni = "\\d{1,8}";
+                            if (!Pattern.matches(cantDigDni, txtDni.getText())) {
+                                Alert mensaje = new Alert(Alert.AlertType.WARNING);
+                                mensaje.setTitle("Cantidad Digitos incorrecta");
+                                mensaje.setContentText("El campo DNI es de ocho digitos...");
+                                mensaje.setHeaderText(null);
+                                mensaje.showAndWait();
+                            } else {
+                                editPaci();
+                                limpiarCampos();
+                                cargarTabla();
+                            }
+
                         }
 
                     } catch (NumberFormatException e) {
