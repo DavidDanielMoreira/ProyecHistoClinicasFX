@@ -37,6 +37,7 @@ public class VistaPacientesController implements Initializable {
     boolean altas = false;
     boolean editar = false;
     boolean exportar = false;
+    String cantDigDni = "\\d{1,8}";  //controla la cantidad de digitos en el campo DNI
     //declaro una variable tipo VistaHistoClinicasController
     private VistaHistoClinicasController vistaHistoClinicasController;
 
@@ -144,6 +145,7 @@ public class VistaPacientesController implements Initializable {
 
     @FXML
     private void eventBuscar(ActionEvent event) {
+        /*
         txtId.setDisable(true);
         txtApe.setDisable(true);
         txtNom.setDisable(true);
@@ -151,6 +153,8 @@ public class VistaPacientesController implements Initializable {
         //txtDni.setDisable(true);
         txtTel.setDisable(true);
         txtCor.setDisable(true);
+         */
+
     }
 
     @FXML
@@ -185,9 +189,18 @@ public class VistaPacientesController implements Initializable {
                             mensaje.setHeaderText(null);
                             mensaje.showAndWait();
                         } else {
-                            inserPaci();
-                            limpiarCampos();
-                            cargarTabla();
+                            if (!Pattern.matches(cantDigDni, txtDni.getText())) {
+                                Alert mensaje = new Alert(Alert.AlertType.WARNING);
+                                mensaje.setTitle("Cantidad Digitos incorrecta");
+                                mensaje.setContentText("El campo DNI es de ocho digitos...");
+                                mensaje.setHeaderText(null);
+                                mensaje.showAndWait();
+                            } else {
+                                inserPaci();
+                                limpiarCampos();
+                                cargarTabla();
+                            }
+
                         }
 
                     } catch (NumberFormatException e) {
@@ -236,7 +249,7 @@ public class VistaPacientesController implements Initializable {
                             mensaje.setHeaderText(null);
                             mensaje.showAndWait();
                         } else {
-                            String cantDigDni = "\\d{1,8}";
+
                             if (!Pattern.matches(cantDigDni, txtDni.getText())) {
                                 Alert mensaje = new Alert(Alert.AlertType.WARNING);
                                 mensaje.setTitle("Cantidad Digitos incorrecta");
@@ -438,10 +451,10 @@ public class VistaPacientesController implements Initializable {
         txtSex.setText("");
         cmbSexo.getSelectionModel().clearSelection();
         cargarTabla();
-        btnGuardar.setDisable(true);
-        btnNuevo.setDisable(false);
-        btnBajas.setDisable(false);
-        btnEditar.setDisable(false);
+        btnGuardar.setDisable(true); //inabilita el boton Guardar
+        btnNuevo.setDisable(false);  //habilita el boton Nuevo
+        btnBajas.setDisable(false);  //habilita el boton Bajas
+        btnEditar.setDisable(false); //habilita el boton Editar
         altas = false;
         editar = false;
     }

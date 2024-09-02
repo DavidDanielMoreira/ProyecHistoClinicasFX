@@ -124,6 +124,7 @@ public class VistaHistoClinicasController implements Initializable {
         vListarHisto = FXCollections.observableArrayList();
         filPorNombre = FXCollections.observableArrayList();
         btnGuardar.setDisable(true); //boton guardar inhabilitado
+        btnAbrirPacientes.setDisable(true);
         cargarTabla();
         mostMedico();
         lblFecha.setText(fechForma); //muestra en el formulario la fecha en formato dd/MM/yyyy
@@ -138,6 +139,7 @@ public class VistaHistoClinicasController implements Initializable {
     private void eventNuevo(ActionEvent event) {
         altas = true;
         btnGuardar.setDisable(false);
+        btnAbrirPacientes.setDisable(false);
     }
 
     @FXML
@@ -148,6 +150,8 @@ public class VistaHistoClinicasController implements Initializable {
     private void eventEditar(ActionEvent event) {
         editar = true;
         btnGuardar.setDisable(false);
+        txtHisto.setDisable(false);
+        txtHisto.requestFocus();
     }
 
     @FXML
@@ -243,6 +247,8 @@ public class VistaHistoClinicasController implements Initializable {
 
     @FXML
     private void eventBuscarPorNombre(KeyEvent event) {
+        //busca a traves del nombre de la historia clinica
+       
         buscarPorNombre();
     }
 
@@ -402,6 +408,8 @@ public class VistaHistoClinicasController implements Initializable {
         altas = false;
         editar = false;
         btnGuardar.setDisable(true);
+        btnAbrirPacientes.setDisable(true);
+        txtHisto.setDisable(true);
     }
 
     //metodo cerrar ventana
