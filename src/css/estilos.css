@@ -1,0 +1,30 @@
+.fondo-color{
+    -fx-background-color: #f5f5f5;
+}
+.fondo-botones{
+    -fx-background-color: #65875c;
+}
+.texto-label{
+    -fx-font-family:"arial-narrow";
+    -fx-text-fill: #000000;
+    -fx-font-size: 14px;
+}
+.texto-botones{
+    -fx-font-family:"arial-narrow";
+    -fx-font-fill: #000000;
+    -fx-font-size: 13px;
+}
+
+.texto-contenido{
+    -fx-font-family:"arial-narrow";
+    -fx-font-size: 12px;
+    -fx-font-fill: #000000;
+    fx-font-weight: cursiva;
+}
+
+.texto-fecha{
+    -fx-font-family:"arial-narrow";
+    -fx-font-size: 15px;
+    -fx-font-fill: #000000;
+    fx-font-weight: cursiva;
+}

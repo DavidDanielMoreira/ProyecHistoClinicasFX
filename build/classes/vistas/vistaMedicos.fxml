@@ -1,74 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/22" fx:controller="controladores.VistaMedicosController">
+<AnchorPane id="AnchorPane" prefHeight="350.0" prefWidth="700.0" styleClass="fondo-color" stylesheets="@../css/estilos.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.VistaMedicosController">
    <children>
-      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="380.0" prefWidth="680.0" style="-fx-border-color: black;">
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="330.0" prefWidth="680.0" style="-fx-border-color: black;">
          <children>
-            <Label layoutX="220.0" layoutY="20.0" text="Formulario Médicos">
-               <font>
-                  <Font name="Arial Narrow Bold" size="24.0" />
-               </font>
-            </Label>
-            <Label layoutX="15.0" layoutY="60.0" text="Apellido:">
-               <font>
-                  <Font name="Arial Narrow Bold" size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtApe" layoutX="15.0" layoutY="80.0" prefHeight="28.0" prefWidth="320.0" />
-            <Label layoutX="340.0" layoutY="60.0" text="Nombres:">
-               <font>
-                  <Font name="Arial Narrow Bold" size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtNom" layoutX="340.0" layoutY="80.0" prefHeight="28.0" prefWidth="320.0" />
-            <Label layoutX="15.0" layoutY="110.0" text="Domicilio:">
-               <font>
-                  <Font name="Arial Narrow Bold" size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtDom" layoutX="15.0" layoutY="130.0" prefHeight="28.0" prefWidth="380.0" />
-            <Label layoutX="400.0" layoutY="110.0" text="DNI:">
-               <font>
-                  <Font name="Arial Narrow Bold" size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtDni" layoutX="401.0" layoutY="130.0" prefHeight="28.0" prefWidth="260.0" />
-            <Label layoutX="15.0" layoutY="162.0" text="Nro. Matricula:">
-               <font>
-                  <Font name="Arial Narrow Bold" size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtNro" layoutX="15.0" layoutY="180.0" prefHeight="28.0" prefWidth="200.0" />
-            <Label layoutX="220.0" layoutY="162.0" text="Teléfono:">
-               <font>
-                  <Font name="Arial Narrow Bold" size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtTel" layoutX="220.0" layoutY="180.0" prefHeight="28.0" prefWidth="200.0" />
-            <Label layoutX="430.0" layoutY="162.0" text="Especialidad:">
-               <font>
-                  <Font name="Arial Narrow Bold" size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtEsp" layoutX="430.0" layoutY="180.0" prefHeight="28.0" prefWidth="230.0" />
-            <TextField fx:id="txtId" layoutX="15.0" layoutY="20.0" prefHeight="28.0" prefWidth="50.0" />
-            <AnchorPane layoutX="15.0" layoutY="240.0" prefHeight="110.0" prefWidth="320.0" style="-fx-border-color: black;">
+            <TextField fx:id="txtId" layoutX="15.0" layoutY="285.0" prefHeight="28.0" prefWidth="50.0" />
+            <VBox layoutX="15.0" layoutY="25.0" prefHeight="40.0" prefWidth="280.0">
                <children>
-                  <Button fx:id="btnNuevo" layoutX="15.0" layoutY="20.0" mnemonicParsing="false" onAction="#eventNueco" prefHeight="30.0" prefWidth="90.0" text="Nuevo" />
-                  <Button fx:id="btnEditar" layoutX="110.0" layoutY="20.0" mnemonicParsing="false" onAction="#eventEditar" prefHeight="30.0" prefWidth="90.0" text="Editar" />
-                  <Button fx:id="btnCancelar" layoutX="205.0" layoutY="20.0" mnemonicParsing="false" onAction="#eventCancelar" prefHeight="30.0" prefWidth="90.0" text="Cancelar" />
-                  <Button fx:id="btnCerrar" layoutX="205.0" layoutY="70.0" mnemonicParsing="false" onAction="#eventCerrar" prefHeight="30.0" prefWidth="90.0" text="Cerrar" />
-                  <Button fx:id="btnGuardar" layoutX="110.0" layoutY="70.0" mnemonicParsing="false" onAction="#eventGuardar" prefHeight="30.0" prefWidth="90.0" text="Guardar" />
+                  <Label text="Apellido:">
+                     <font>
+                        <Font name="Arial Narrow Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtApe" prefHeight="28.0" prefWidth="320.0" />
                </children>
-            </AnchorPane>
-            <AnchorPane layoutX="370.0" layoutY="240.0" prefHeight="110.0" prefWidth="280.0" style="-fx-border-color: black;" />
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
+            </VBox>
+            <VBox layoutX="300.0" layoutY="25.0" prefHeight="40.0" prefWidth="365.0">
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
+               <children>
+                  <Label text="Nombres:">
+                     <font>
+                        <Font name="Arial Narrow Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtNom" prefHeight="28.0" prefWidth="320.0" />
+               </children>
+            </VBox>
+            <VBox layoutX="15.0" layoutY="75.0" prefHeight="40.0" prefWidth="385.0">
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
+               <children>
+                  <Label text="Domicilio:">
+                     <font>
+                        <Font name="Arial Narrow Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtDom" prefHeight="28.0" prefWidth="380.0" />
+               </children>
+            </VBox>
+            <VBox layoutX="405.0" layoutY="75.0" prefHeight="40.0" prefWidth="260.0">
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
+               <children>
+                  <Label text="DNI:">
+                     <font>
+                        <Font name="Arial Narrow Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtDni" prefHeight="28.0" prefWidth="260.0" />
+               </children>
+            </VBox>
+            <VBox layoutX="15.0" layoutY="135.0" prefHeight="40.0" prefWidth="200.0">
+               <children>
+                  <Label text="Nro. Matricula:">
+                     <font>
+                        <Font name="Arial Narrow Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtNro" prefHeight="28.0" prefWidth="200.0" />
+               </children>
+            </VBox>
+            <VBox layoutX="220.0" layoutY="135.0" prefHeight="40.0" prefWidth="210.0">
+               <children>
+                  <Label text="Teléfono:">
+                     <font>
+                        <Font name="Arial Narrow Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtTel" prefHeight="28.0" prefWidth="200.0" />
+               </children>
+            </VBox>
+            <VBox layoutX="435.0" layoutY="135.0" prefHeight="40.0" prefWidth="230.0">
+               <children>
+                  <Label text="Especialidad:">
+                     <font>
+                        <Font name="Arial Narrow Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtEsp" prefHeight="28.0" prefWidth="230.0" />
+               </children>
+            </VBox>
+            <HBox layoutX="50.0" layoutY="210.0" prefHeight="50.0" prefWidth="320.0" spacing="5.0">
+               <children>
+                  <Button fx:id="btnNuevo" mnemonicParsing="false" onAction="#eventNueco" prefHeight="40.0" prefWidth="100.0" text="Nuevo" />
+                  <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#eventEditar" prefHeight="40.0" prefWidth="100.0" text="Editar" />
+                  <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#eventCancelar" prefHeight="40.0" prefWidth="100.0" text="Cancelar" />
+               </children>
+               <padding>
+                  <Insets left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
+            <HBox layoutX="465.0" layoutY="250.0" prefHeight="50.0" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <Button fx:id="btnGuardar" mnemonicParsing="false" onAction="#eventGuardar" prefHeight="40.0" prefWidth="90.0" text="Guardar" />
+                  <Button fx:id="btnCerrar" mnemonicParsing="false" onAction="#eventCerrar" prefHeight="40.0" prefWidth="90.0" text="Cerrar" />
+               </children>
+               <padding>
+                  <Insets left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
          </children>
       </AnchorPane>
    </children>
