@@ -9,14 +9,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="350.0" prefWidth="700.0" styleClass="fondo-color" stylesheets="@../css/estilos.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.VistaMedicosController">
+<AnchorPane id="AnchorPane" prefHeight="310.0" prefWidth="700.0" styleClass="fondo-color" stylesheets="@../css/estilos.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.VistaMedicosController">
    <children>
-      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="330.0" prefWidth="680.0" style="-fx-border-color: black;">
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="290.0" prefWidth="680.0" style="-fx-border-color: black;">
          <children>
-            <TextField fx:id="txtId" layoutX="15.0" layoutY="285.0" prefHeight="28.0" prefWidth="50.0" />
+            <TextField fx:id="txtId" layoutX="415.0" layoutY="190.0" prefHeight="28.0" prefWidth="50.0" />
             <VBox layoutX="15.0" layoutY="25.0" prefHeight="40.0" prefWidth="280.0">
                <children>
-                  <Label text="Apellido:">
+                  <Label styleClass="texto-label" stylesheets="@../css/estilos.css" text="Apellido:">
                      <font>
                         <Font name="Arial Narrow Bold" size="14.0" />
                      </font>
@@ -32,7 +32,7 @@
                   <Insets top="5.0" />
                </padding>
                <children>
-                  <Label text="Nombres:">
+                  <Label styleClass="texto-label" stylesheets="@../css/estilos.css" text="Nombres:">
                      <font>
                         <Font name="Arial Narrow Bold" size="14.0" />
                      </font>
@@ -45,7 +45,7 @@
                   <Insets top="5.0" />
                </padding>
                <children>
-                  <Label text="Domicilio:">
+                  <Label styleClass="texto-label" stylesheets="@../css/estilos.css" text="Domicilio:">
                      <font>
                         <Font name="Arial Narrow Bold" size="14.0" />
                      </font>
@@ -58,7 +58,7 @@
                   <Insets top="5.0" />
                </padding>
                <children>
-                  <Label text="DNI:">
+                  <Label styleClass="texto-label" text="DNI:">
                      <font>
                         <Font name="Arial Narrow Bold" size="14.0" />
                      </font>
@@ -68,7 +68,7 @@
             </VBox>
             <VBox layoutX="15.0" layoutY="135.0" prefHeight="40.0" prefWidth="200.0">
                <children>
-                  <Label text="Nro. Matricula:">
+                  <Label styleClass="texto-label" stylesheets="@../css/estilos.css" text="Nro. Matricula:">
                      <font>
                         <Font name="Arial Narrow Bold" size="14.0" />
                      </font>
@@ -78,7 +78,7 @@
             </VBox>
             <VBox layoutX="220.0" layoutY="135.0" prefHeight="40.0" prefWidth="210.0">
                <children>
-                  <Label text="Teléfono:">
+                  <Label styleClass="texto-label" stylesheets="@../css/estilos.css" text="Teléfono:">
                      <font>
                         <Font name="Arial Narrow Bold" size="14.0" />
                      </font>
@@ -88,7 +88,7 @@
             </VBox>
             <VBox layoutX="435.0" layoutY="135.0" prefHeight="40.0" prefWidth="230.0">
                <children>
-                  <Label text="Especialidad:">
+                  <Label styleClass="texto-label" stylesheets="@../css/estilos.css" text="Especialidad:">
                      <font>
                         <Font name="Arial Narrow Bold" size="14.0" />
                      </font>
@@ -96,7 +96,7 @@
                   <TextField fx:id="txtEsp" prefHeight="28.0" prefWidth="230.0" />
                </children>
             </VBox>
-            <HBox layoutX="50.0" layoutY="210.0" prefHeight="50.0" prefWidth="320.0" spacing="5.0">
+            <HBox layoutX="50.0" layoutY="190.0" prefHeight="50.0" prefWidth="320.0" spacing="5.0">
                <children>
                   <Button fx:id="btnNuevo" mnemonicParsing="false" onAction="#eventNueco" prefHeight="40.0" prefWidth="100.0" text="Nuevo" />
                   <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#eventEditar" prefHeight="40.0" prefWidth="100.0" text="Editar" />
@@ -106,7 +106,7 @@
                   <Insets left="5.0" right="5.0" top="5.0" />
                </padding>
             </HBox>
-            <HBox layoutX="465.0" layoutY="250.0" prefHeight="50.0" prefWidth="200.0" spacing="5.0">
+            <HBox layoutX="465.0" layoutY="230.0" prefHeight="50.0" prefWidth="200.0" spacing="5.0">
                <children>
                   <Button fx:id="btnGuardar" mnemonicParsing="false" onAction="#eventGuardar" prefHeight="40.0" prefWidth="90.0" text="Guardar" />
                   <Button fx:id="btnCerrar" mnemonicParsing="false" onAction="#eventCerrar" prefHeight="40.0" prefWidth="90.0" text="Cerrar" />

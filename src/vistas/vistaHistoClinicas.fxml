@@ -19,14 +19,18 @@
          <children>
             <VBox layoutX="10.0" layoutY="15.0" prefHeight="50.0" prefWidth="230.0">
                <children>
-                  <Label styleClass="texto-label" stylesheets="@../css/estilos.css" text="DNI:">
+                  <Label stylesheets="@../css/estilos.css" text="DNI:">
                      <font>
                         <Font name="Arial Narrow" size="14.0" />
                      </font>
+                     <styleClass>
+                        <String fx:value="texto-label" />
+                        <String fx:value="texto-label" />
+                     </styleClass>
                   </Label>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <TextField fx:id="txtDniPaci" prefHeight="28.0" prefWidth="250.0" />
+                        <TextField fx:id="txtDniPaci" prefHeight="28.0" prefWidth="250.0" styleClass="texto-contenido" stylesheets="@../css/estilos.css" />
                      </children>
                   </VBox>
                </children>
@@ -54,7 +58,7 @@
                         <Font name="Arial Narrow" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtApePaci" prefHeight="28.0" prefWidth="190.0" />
+                  <TextField fx:id="txtApePaci" prefHeight="28.0" prefWidth="190.0" styleClass="texto-contenido" stylesheets="@../css/estilos.css" />
                </children>
                <padding>
                   <Insets left="5.0" right="5.0" top="5.0" />
@@ -70,7 +74,7 @@
                         <Font name="Arial Narrow" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtNomPaci" prefHeight="28.0" prefWidth="195.0" />
+                  <TextField fx:id="txtNomPaci" prefHeight="28.0" prefWidth="195.0" styleClass="texto-contenido" />
                </children>
             </VBox>
             <TextField fx:id="txtIdPaci" layoutX="373.0" layoutY="7.0" prefHeight="28.0" prefWidth="37.0" />
@@ -90,7 +94,7 @@
                         <Font name="Arial Narrow" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtHisto" onKeyReleased="#eventBuscarPorNombre" prefHeight="28.0" prefWidth="170.0" />
+                  <TextField fx:id="txtHisto" onKeyReleased="#eventBuscarPorNombre" prefHeight="28.0" prefWidth="170.0" styleClass="texto-contenido" />
                </children>
             </VBox>
             <VBox layoutX="175.0" layoutY="10.0" prefHeight="50.0" prefWidth="235.0">
@@ -103,7 +107,7 @@
                         <Font name="Arial Narrow" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtApeMedi" prefHeight="28.0" prefWidth="210.0" />
+                  <TextField fx:id="txtApeMedi" prefHeight="28.0" prefWidth="210.0" styleClass="texto-contenido" stylesheets="@../css/estilos.css" />
                </children>
             </VBox>
             <VBox layoutX="10.0" layoutY="61.0" prefHeight="190.0" prefWidth="400.0">
@@ -113,7 +117,7 @@
                         <Font name="Arial Narrow" size="14.0" />
                      </font>
                   </Label>
-                  <TextArea fx:id="txtTratHisto" prefHeight="167.0" prefWidth="400.0" />
+                  <TextArea fx:id="txtTratHisto" prefHeight="167.0" prefWidth="400.0" stylesheets="@../css/estilos.css" />
                </children>
                <padding>
                   <Insets left="5.0" right="5.0" top="5.0" />
@@ -140,15 +144,39 @@
       </AnchorPane>
       <AnchorPane layoutX="440.0" layoutY="320.0" prefHeight="110.0" prefWidth="645.0" style="-fx-border-color: black;">
          <children>
-            <Button fx:id="btnCerrar" layoutX="530.0" layoutY="60.0" mnemonicParsing="false" onAction="#eventCerrar" prefHeight="40.0" prefWidth="100.0" text="Cerrar" />
-            <Button fx:id="btnGuardar" layoutX="425.0" layoutY="60.0" mnemonicParsing="false" onAction="#eventGuardar" prefHeight="40.0" prefWidth="100.0" text="Guardar" />
+            <Button fx:id="btnCerrar" layoutX="530.0" layoutY="60.0" mnemonicParsing="false" onAction="#eventCerrar" prefHeight="40.0" prefWidth="100.0" stylesheets="@../css/estilos.css" text="Cerrar">
+               <styleClass>
+                  <String fx:value="fondo-botones" />
+                  <String fx:value="texto-botones" />
+               </styleClass></Button>
+            <Button fx:id="btnGuardar" layoutX="425.0" layoutY="60.0" mnemonicParsing="false" onAction="#eventGuardar" prefHeight="40.0" prefWidth="100.0" stylesheets="@../css/estilos.css" text="Guardar">
+               <styleClass>
+                  <String fx:value="fondo-botones" />
+                  <String fx:value="texto-botones" />
+               </styleClass></Button>
             <HBox layoutX="20.0" layoutY="5.0" prefHeight="50.0" prefWidth="490.0" spacing="5.0">
                <children>
-                  <Button fx:id="btnNuevo" mnemonicParsing="false" onAction="#eventNuevo" prefHeight="40.0" prefWidth="100.0" text="Nuevo" />
-                  <Button fx:id="btnBajas" mnemonicParsing="false" onAction="#eventBajas" prefHeight="40.0" prefWidth="100.0" text="Bajas" />
-                  <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#eventEditar" prefHeight="40.0" prefWidth="100.0" text="Editar" />
-                  <Button fx:id="btnBuscar" mnemonicParsing="false" onAction="#eventBuscar" prefHeight="40.0" prefWidth="100.0" text="Buscar" />
-                  <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#eventCancelar" prefHeight="40.0" prefWidth="100.0" text="Cancelar" />
+                  <Button fx:id="btnNuevo" mnemonicParsing="false" onAction="#eventNuevo" prefHeight="40.0" prefWidth="100.0" stylesheets="@../css/estilos.css" text="Nuevo">
+                     <styleClass>
+                        <String fx:value="fondo-botones" />
+                        <String fx:value="texto-botones" />
+                     </styleClass></Button>
+                  <Button fx:id="btnBajas" mnemonicParsing="false" onAction="#eventBajas" prefHeight="40.0" prefWidth="100.0" stylesheets="@../css/estilos.css" text="Bajas">
+                     <styleClass>
+                        <String fx:value="fondo-botones" />
+                        <String fx:value="texto-botones" />
+                     </styleClass></Button>
+                  <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#eventEditar" prefHeight="40.0" prefWidth="100.0" stylesheets="@../css/estilos.css" text="Editar">
+                     <styleClass>
+                        <String fx:value="fondo-botones" />
+                        <String fx:value="texto-botones" />
+                     </styleClass></Button>
+                  <Button fx:id="btnBuscar" mnemonicParsing="false" onAction="#eventBuscar" prefHeight="40.0" prefWidth="100.0" stylesheets="@../css/estilos.css" text="Buscar">
+                     <styleClass>
+                        <String fx:value="fondo-botones" />
+                        <String fx:value="texto-botones" />
+                     </styleClass></Button>
+                  <Button fx:id="btnCancelar" cancelButton="true" mnemonicParsing="false" onAction="#eventCancelar" prefHeight="40.0" prefWidth="100.0" stylesheets="@../css/estilos.css" text="Cancelar" />
                </children>
                <padding>
                   <Insets left="5.0" right="5.0" top="5.0" />

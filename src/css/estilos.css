@@ -6,6 +6,7 @@
 }
 .texto-label{
     -fx-font-family:"arial-narrow";
+    -fx-font-weight: 100;
     -fx-text-fill: #000000;
     -fx-font-size: 14px;
 }
